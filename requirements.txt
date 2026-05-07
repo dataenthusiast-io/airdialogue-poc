@@ -1,0 +1,11 @@
+openai
+pydantic
+datasets
+pandas
+scikit-learn
+python-dotenv
+pyyaml
+tqdm
+jsonlines
+matplotlib
+seaborn

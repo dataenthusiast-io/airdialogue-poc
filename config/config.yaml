@@ -1,0 +1,47 @@
+dataset:
+  name: google/air_dialogue
+  config: air_dialogue_data
+  split: train
+  filter_correct_sample: true   # keep only records where correct_sample == True
+
+model:
+  name: gpt-4o-mini
+  temperature: 0
+
+sampling:
+  total: 300
+  per_class: 100
+  random_seed: 42
+
+classes:
+  - book
+  - change
+  - cancel
+
+costs:
+  # GPT-4o-mini pricing in USD per 1K tokens
+  # Verify against https://openai.com/pricing at time of execution and update if changed
+  input_per_1k_tokens: 0.000150
+  output_per_1k_tokens: 0.000600
+  industrial_scale_benchmark: 10000
+
+paths:
+  raw_data_cache: data/raw
+  sample: data/processed/sample.jsonl
+  ground_truth: data/processed/ground_truth.jsonl
+  results: results/results.jsonl
+  results_dir: results
+  plots_dir: results/plots
+  prompts_dir: prompts
+
+plots:
+  dpi: 150
+  format: png
+  style: seaborn-v0_8-whitegrid   # note: not the deprecated seaborn-whitegrid
+  h1_threshold: 0.80              # drawn as reference line on F1 plots
+  palette:
+    primary: "#4C72B0"
+    classes:
+      book: "#4C72B0"
+      change: "#DD8452"
+      cancel: "#55A868"
