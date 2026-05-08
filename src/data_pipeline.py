@@ -82,7 +82,7 @@ def run() -> None:
     assert len(sample_rows) == config.sampling.total, \
         f"Expected {config.sampling.total} rows, got {len(sample_rows)}"
 
-    class_counts = {}
+    class_counts: dict[str, int] = {}
     for row in ground_truth_rows:
         class_counts[row["goal"]] = class_counts.get(row["goal"], 0) + 1
     for cls in config.classes:

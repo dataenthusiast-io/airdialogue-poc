@@ -38,9 +38,10 @@ plots:
   dpi: 150
   format: png
   style: seaborn-v0_8-whitegrid   # note: not the deprecated seaborn-whitegrid
-  h1_threshold: 0.80              # drawn as reference line on F1 plots
+  h1_threshold: 0.80      # drawn as reference line on F1 plots
   palette:
     primary: "#4C72B0"
+    secondary: "#DD8452"
     classes:
       book: "#4C72B0"
       change: "#DD8452"

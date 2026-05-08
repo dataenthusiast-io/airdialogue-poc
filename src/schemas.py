@@ -11,7 +11,7 @@ class IntentClassification(BaseModel):
     This class is the single source of truth for the structured output format.
     """
     predicted_intent: Literal["book", "change", "cancel"]
-    customer_sentiment: Literal["positive", "neutral", "negative"]
+    customer_sentiment: Literal["positive", "neutral", "negative"] = "neutral"
 
 
 if __name__ == "__main__":
@@ -25,3 +25,5 @@ if __name__ == "__main__":
         raise AssertionError("Should have raised ValidationError")
     except ValidationError as e:
         print(f"Invalid input correctly rejected: {e.error_count()} error(s)")
+
+    print("All smoke tests passed.")
